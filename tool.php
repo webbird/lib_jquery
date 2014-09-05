@@ -1,37 +1,45 @@
 <?php
 
 /**
- * This file is part of an ADDON for use with LEPTON Core.
- * This ADDON is released under the GNU GPL.
- * Additional license terms can be seen in the info.php of this module.
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 3 of the License, or (at
+ *   your option) any later version.
  *
+ *   This program is distributed in the hope that it will be useful, but
+ *   WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ *   General Public License for more details.
  *
- * @author          LEPTON Project
- * @copyright       2010-2011, LEPTON Project
- * @link            http://www.LEPTON-cms.org
- * @license         http://www.gnu.org/licenses/gpl.html
- * @license_terms   please see info.php of this module
- * @version         $Id: tool.php 1903 2012-04-19 09:15:27Z webbird $
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program; if not, see <http://www.gnu.org/licenses/>.
+ *
+ *   @author          Black Cat Development
+ *   @copyright       2014, Black Cat Development
+ *   @link            http://blackcat-cms.org
+ *   @license         http://www.gnu.org/licenses/gpl.html
+ *   @category        CAT_Module
+ *   @package         lib_jquery
  *
  */
 
-// include class.secure.php to protect this file and the whole CMS!
-if (defined('WB_PATH')) {	
-	include(WB_PATH.'/framework/class.secure.php'); 
-} else {
+if (defined('WB_PATH')) {
+    if (defined('CAT_PATH')) include(CAT_PATH.'/framework/class.secure.php');
+    elseif (defined('LEPTON_PATH')) include(LEPTON_PATH.'/framework/class.secure.php');
+}
+else {
 	$root = "../";
 	$level = 1;
 	while (($level < 10) && (!file_exists($root.'/framework/class.secure.php'))) {
 		$root .= "../";
 		$level += 1;
 	}
-	if (file_exists($root.'/framework/class.secure.php')) { 
-		include($root.'/framework/class.secure.php'); 
+	if (file_exists($root.'/framework/class.secure.php')) {
+		include($root.'/framework/class.secure.php');
 	} else {
 		trigger_error(sprintf("[ <b>%s</b> ] Can't include class.secure.php!", $_SERVER['SCRIPT_NAME']), E_USER_ERROR);
 	}
 }
-// end include class.secure.php
 
 include dirname(__FILE__).'/library_info.php';
 
@@ -55,7 +63,7 @@ include dirname(__FILE__).'/library_info.php';
   <p>Please note: This is a library module which has no Admin Tool functionality.
   If you need an Admin Tool to manage your jQuery Plugins, please install
   <a href="http://www.websitebakers.com/pages/libs/libraryadmin.php">LibraryAdmin</a>.</p>
-  <p>Hinweis: Dies ist ein Bibliotheksmodul ohne Admin Tool Funktionalität.
-  Wenn Sie ein Admin Tool benötigen, um Ihre jQuery Plugins zu verwalten, installieren
+  <p>Hinweis: Dies ist ein Bibliotheksmodul ohne Admin Tool Funktionalit&#228;t.
+  Wenn Sie ein Admin Tool ben&#246;tigen, um Ihre jQuery Plugins zu verwalten, installieren
   Sie bitte <a href="http://www.websitebakers.com/pages/libs/libraryadmin.php">LibraryAdmin</a>.</p>
 </div>
